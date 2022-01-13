@@ -1,0 +1,58 @@
+.Login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 200px;
+    padding: 20px;
+    background-color: #282A36;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0 10px;
+    margin: 80px;
+}
+.LoginInput{
+    margin: 10px;
+    height: 30px;
+    border-radius: 5px;
+    color: white;
+    background-color: #282A36;
+    border-color: #50FA65;
+    border-style: solid;
+    width: 100%;
+    transition: 1s;
+}
+.LoginInput::placeholder{
+    color: #ffffff20;
+    font-weight: lighter;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.LoginInput:focus{
+    box-shadow: #50FA65 0 0 10px;
+    outline: none;
+}
+
+.LoginButton{
+    margin: 10px;
+    height: 40px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    width: 100%;
+    border-radius: 5px;
+    color: #282A36;
+    background-color: #50FA65;
+    border-color: #50FA65;
+    border-style: solid;
+    transition: 1s;
+}
+.LoginButton:hover{
+    box-shadow: #50FA65 0 0 10px;
+}
+
+/*
+#282A36
+#50FA65
+#BD77AD
+#F1F081
+#F25169
+*/

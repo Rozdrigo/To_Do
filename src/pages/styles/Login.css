@@ -48,6 +48,10 @@
 .LoginButton:hover{
     box-shadow: #50FA65 0 0 10px;
 }
+.Link{
+    color: #50FA65;
+    font-size: small;
+}
 
 /*
 #282A36

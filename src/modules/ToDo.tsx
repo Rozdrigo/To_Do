@@ -33,8 +33,11 @@ function ToDo(props: ToDosProps) {
         if(err.response.status == 401){
          localStorage.removeItem('token')
          window.location.href = "/Login"
+        }else if(err.response.status == 400){
+          window.alert("Preencha todos os campos")
+        }else{
+          window.alert(err.response.data.message)
         }
-         window.alert(err.response.data.message)
         })
   }
 

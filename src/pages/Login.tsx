@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 import { FaLock, FaUserAlt } from 'react-icons/fa'
 
-import './Login.css'
+import './styles/Login.css'
 
 function Login() {
   const navigate = useNavigate();
@@ -31,7 +31,6 @@ function Login() {
           ).then((res) => {
             localStorage.setItem('token', res.data.token)
             navigate('/ToDoList');
-            window.alert(res.data.message)
           }
           ).catch(err => window.alert(err))
         } type="submit"></input>

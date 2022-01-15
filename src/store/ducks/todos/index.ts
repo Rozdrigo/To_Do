@@ -3,7 +3,7 @@ import { ToDoStates, ToDoTypes } from "./types";
 
 const INITIAL_STATE: ToDoStates = {
     notes: [],
-    error: false,
+    error: true,
     loading: false
 }
 

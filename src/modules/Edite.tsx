@@ -1,26 +1,24 @@
 import React, { useState } from 'react';
-
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import api from '../services/api';
 import { ToDoTypes } from '../store/ducks/todos/types';
-import { ToDoStates } from '../store/ducks/todos/types';
 
-import './styles/Create.css'
-
-function Create() {
-    const navigate = useNavigate()
-    const data = useSelector((state: ToDoStates )=> state)
+function Edite(props: {
+    title: string
+    content: string
+    description: string
+    id: string
+}) {
     const dispatch = useDispatch();
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [content, setContent] = useState('')
-    if(data.error){
-        navigate('/Login')
-    }
-    function createToDo() {
-        api.post(
-            '/notes/create',
+    const [content, setContent] = useState('');
+
+
+
+    function editToDo() {
+        api.put(
+            '/notes/update/' + props.id,
             {
                 title: title,
                 content: content,
@@ -29,6 +27,7 @@ function Create() {
             {
                 headers:
                 {
+                    'Content-Type': 'application/json',
                     Authorization: `Bearer ${localStorage.getItem("token")}`
                 }
             }).then((res) => {
@@ -37,19 +36,20 @@ function Create() {
                     type: ToDoTypes.LOAD_REQUEST
                 })
             })
-            .catch((err)=> {
+            .catch(err => {
                 if(err.response.status == 401){
                  localStorage.removeItem('token')
                  window.location.href = "/Login"
                 }
-                console.log(err.response.status)
                 window.alert(err.response.data.message)
             })
     }
+
+
     return (
         <div className='container02'>
             <div className='flexColumn'>
-                <form onSubmit={(e) => { createToDo(); e.preventDefault() }}>
+                <form onSubmit={(e) => { editToDo(); e.preventDefault() }}>
                     Titulo:
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                         <input onChange={(e) => setTitle(e.target.value)} placeholder='Lavar a louça...' className='InputLine' />
@@ -58,7 +58,7 @@ function Create() {
                     <div className='flexRow'>
                         <div className='flexColumn'>
                             Conteúdo:
-                            <textarea onChange={(e) => setContent(e.target.value)} placeholder='Lavar até as 7h...' />
+                            <textarea onChange={(e) => setContent(e.target.value)}  placeholder='Lavar até as 7h...' />
                         </div>
                         <div className='flexColumn'>
                             Descrição:
@@ -66,9 +66,10 @@ function Create() {
                         </div>
                     </div>
                 </form>
+
             </div>
         </div>
     );
 }
 
-export default Create;
+export default Edite;

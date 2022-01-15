@@ -1,0 +1,105 @@
+.container{
+    width: 400px;
+    background-color: #282A36;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0 10px;
+    margin: 10px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    font-weight: bold;
+    justify-content: space-between;
+    padding: 10px;
+    overflow: hidden;
+}
+.IconButtons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+    transition: 0.3s;
+    margin: 5px;
+}
+.IconButtons:hover{
+    filter: grayscale(1);
+}
+.flexRow{
+    display: flex;
+    flex-direction: row;
+}
+.flexColumn{
+    display: flex;
+    flex-direction: column;
+}
+.headless{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 400px;
+    justify-content: space-between;
+}
+.titleToDo{
+    color:#50FA65;
+    font-weight: bold;
+    margin-left: 20px;
+    text-transform: uppercase;
+}
+.ocultButton{
+    background: none;
+    border: none;
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+    border-radius: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    padding: 0;
+    transition: 0.3s;
+}
+.ocultButton:hover{
+    filter: grayscale(0.5);
+}
+.ocultButton:focus{
+    filter: grayscale(0.5);
+}
+.p01post{
+    font-weight: lighter;
+    color: #ffffff80;
+    margin: 0;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+.p02post{
+    font-weight: lighter;
+    margin: 0;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+.closeButton{
+    background: none;
+    border: none;
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+    border-radius: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    padding: 0;
+    transition: 0.3s;
+    position: fixed;
+    top: calc(50% - 115px);
+    left: calc(50% + 160px)
+}
+
+/*
+#282A36
+#50FA65
+#BD77AD
+#F1F081
+#F25169
+*/

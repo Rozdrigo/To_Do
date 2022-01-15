@@ -1,7 +1,7 @@
-import axios from 'axios';
-import React, { Component, useEffect, useState } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { bindActionCreators, Dispatch } from 'redux';
+import { bindActionCreators, Dispatch } from 'redux'
+
 
 import { AplicationState } from '../store';
 
@@ -9,12 +9,12 @@ import Create from '../modules/Create'
 
 import ToDo from '../modules/ToDo';
 
-import { ToDos } from '../store/ducks/todos/types'
+import { ToDoStates } from '../store/ducks/todos/types'
 
 import * as TodosActions from '../store/ducks/todos/actions'
 
 interface StateProps {
-  todos: ToDos[]
+  todos: ToDoStates
 }
 
 interface DispatchProps {
@@ -27,25 +27,31 @@ interface OwnProps{
 
 type Props = StateProps & DispatchProps & OwnProps;
 
+
+
 class ToDoList extends Component<Props> {
   componentDidMount(){
+    const { todos } = this.props
     const { loadRequest } = this.props;
-
+    if(todos.error && localStorage.getItem('token') == undefined){
+      window.location.href = "/Login"
+    }
     loadRequest()
   }
+  
   render(){
     const { todos } = this.props
     return (
       <div>
         <Create/>
-        {todos.map(a => <ToDo key={a.id} title={a.title}/>)}
+        {todos.notes.map((a , b)=> <ToDo key={a.id} data={a}/>)}
       </div>
     )
   }
 }
 
 const mapStateToProps = (state: AplicationState)=> ({
-  todos: state.todos.notes
+  todos: state.todos
 })
 
 const mapDispatchToProps = ( dispatch: Dispatch )=>

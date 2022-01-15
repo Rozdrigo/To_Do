@@ -1,7 +1,9 @@
+import internal from "stream";
+
 export enum ToDoTypes {
-    'LOAD_REQUEST' = "@repositories/LOAD_REQUEST",
-    'LOAD_SUCCESS' = "@repositories/LOAD_LOAD_SUCCESS",
-    'LOAD_FAILURE' = "@repositories/LOAD_FAILURE"
+    'LOAD_REQUEST' = "@ToDos/LOAD_REQUEST",
+    'LOAD_SUCCESS' = "@ToDos/LOAD_LOAD_SUCCESS",
+    'LOAD_FAILURE' = "@ToDos/LOAD_FAILURE",
 }
 
 export interface ToDos {
